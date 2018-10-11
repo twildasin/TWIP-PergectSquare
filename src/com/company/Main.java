@@ -15,11 +15,13 @@ public class Main {
         String dec;
         String end = "";
         int out = 0;
+        boolean con = false;
+        boolean con1 = false;
 
         System.out.println("Welcome user, please input your name:");
         name = kbin.nextLine();
 
-        while(true)
+        while(con == false)
         {
             in = new RanNum();
             out = in.PerfectRandom();
@@ -28,25 +30,29 @@ public class Main {
             end += ("\n" + temp);
 
             System.out.println("\nWould you like to:\n0 - Exit\n1 - Get a list of all stored names and numbers\n2 - Enter a new name and number");
-            while(true)
+            while(con1 == false)
             {
                 dec = kbin.nextLine();
                 if(Objects.equals(dec, "0"))
                 {
                     System.out.println("Exiting...");
-                    System.exit(0);
-                    break;
+                    //System.exit(0);
+                    con1 = true;
+                    con = true;
                 }
                 else if(Objects.equals(dec, "1"))
                 {
                     System.out.println("Printing List...");
                     System.out.println(end);
-                    System.exit(0);
-                    break;
+                    //System.exit(0);
+                    con1 = true;
+                    con = true;
                 }
                 else if(Objects.equals(dec, "2"))
                 {
-                    break;
+                    System.out.println("\nPlease input another name:");
+                    name = kbin.nextLine();
+                    con1 = true;
                 }
                 else
                 {
@@ -54,8 +60,7 @@ public class Main {
                 }
 
             }
-            System.out.println("\nPlease input another name:");
-            name = kbin.nextLine();
+            con1 = false;
         }
 
     }
